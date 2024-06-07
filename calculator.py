@@ -104,8 +104,8 @@ def start():
     while True:
         equation = input("Enter the equation: ")
 
-        # if quit is entered
-        if equation.lower() == "quit":
+        # if a stop keyword is entered is entered
+        if equation.lower() == "quit" or equation.lower() == "stop" or equation.lower() == "break":
             break
 
         # if a letter is inputed then quit
@@ -115,9 +115,12 @@ def start():
                 break
 
         evaluate(equation)
+def main():
+    # opening statement and instructions
+    print("Hello, welcome to the calculator!")
+    print("If quit is entered the program will quit.")
+    start()
+    print("Thank you, have a nice day!")
 
-# opening statement and instructions
-print("Hello, welcome to the calculator!")
-print("If quit is entered the program will quit.")
-start()
-print("Thank you, have a nice day!")
+if __name__ == "__main__":
+    main()
