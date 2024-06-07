@@ -90,14 +90,14 @@ def evaluate(expression):
         # is a digit so push it
         else:
             stack.push(int(i))
-    if stack.size() > 1: 
-        print("There was an error with your equation")
-    else:
-        print("The answer is " + str(stack.pop()))
-    # clear data
     postfix.clear()
-    while not stack.is_empty():
-        stack.pop()
+    if stack.size() > 1: 
+        while not stack.is_empty():
+            stack.pop()
+        print("There was an error with your equation")
+        return -999999999999999
+    else:
+        return stack.pop()
 
 # takes input
 def start():
@@ -114,7 +114,17 @@ def start():
                 print("A letter was in the expression")
                 break
 
+<<<<<<< Updated upstream
         evaluate(equation)
+=======
+        print("The answer is " + str(evaluate(equation)))
+def main():
+    # opening statement and instructions
+    print("Hello, welcome to the calculator!")
+    print("If quit is entered the program will quit.")
+    start()
+    print("Thank you, have a nice day!")
+>>>>>>> Stashed changes
 
 # opening statement and instructions
 print("Hello, welcome to the calculator!")
