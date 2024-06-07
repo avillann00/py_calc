@@ -114,23 +114,13 @@ def start():
                 print("A letter was in the expression")
                 break
 
-<<<<<<< Updated upstream
-        evaluate(equation)
-<<<<<<< HEAD
-=======
         print("The answer is " + str(evaluate(equation)))
-=======
->>>>>>> main
 def main():
     # opening statement and instructions
     print("Hello, welcome to the calculator!")
     print("If quit is entered the program will quit.")
     start()
     print("Thank you, have a nice day!")
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> main
 
 if __name__ == "__main__":
     main()
