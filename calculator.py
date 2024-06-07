@@ -43,44 +43,17 @@ def perform(operator, num_1, num_2):
         except ZeroDivisionError:
             raise ZeroDivisionError("Not allowed to divide by 0")
 
-# stack
-stack = Stack()
-# postfix equation
-postfix = []
-# the current number
-current_num = []
-# boolean to check if the calculator needs to keep going
-keep_going = True
-
-# opening statement and instructions
-print("Hello, welcome to the calculator!")
-print("If quit is entered the program will quit.")
-
-# start of the actual program
-while keep_going:
-    # takes input
-    equation = input("Enter the equation: ")
-
-    # if a letter is inputed then quit
-    for i in equation:
-        if i.isalpha():
-            print("A letter was in the expression")
-            keep_going = False
-            break
-
-    # if quit is entered
-    if equation.lower() == "quit":
-        keep_going = False
-
-    # exit the program
-    if not keep_going:
-        break
+def evaluate(expression):
+    # stack
+    stack = Stack()
+    # postfix equation
+    postfix = []
 
     # parses the equation
-    equation = re.findall(r'(\d+|\+|\-|\*|\/|\(|\))', equation)
+    expression = re.findall(r'(\d+|\+|\-|\*|\/|\(|\))',expression)
 
     # changes the input to infix
-    for i in equation:
+    for i in expression:
         # if its a digit add it right away
         if i.isdigit():
             postfix.append(i)
@@ -117,8 +90,6 @@ while keep_going:
         # is a digit so push it
         else:
             stack.push(int(i))
-    if not keep_going:
-        break
     if stack.size() > 1: 
         print("There was an error with your equation")
     else:
@@ -128,4 +99,25 @@ while keep_going:
     while not stack.is_empty():
         stack.pop()
 
+# takes input
+def start():
+    while True:
+        equation = input("Enter the equation: ")
+
+        # if quit is entered
+        if equation.lower() == "quit":
+            break
+
+        # if a letter is inputed then quit
+        for i in equation:
+            if i.isalpha():
+                print("A letter was in the expression")
+                break
+
+        evaluate(equation)
+
+# opening statement and instructions
+print("Hello, welcome to the calculator!")
+print("If quit is entered the program will quit.")
+start()
 print("Thank you, have a nice day!")
