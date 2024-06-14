@@ -9,7 +9,6 @@ def clear():
 # adds a character to the expression
 def add(character):
     string = expression.get()
-    string += " "
     string += character
     expression.set(string)
 
